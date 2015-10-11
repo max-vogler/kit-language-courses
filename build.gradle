@@ -1,5 +1,5 @@
 group 'de.maxvogler'
-version '1.0-SNAPSHOT'
+version '0.1'
 
 buildscript {
     repositories {
@@ -12,6 +12,7 @@ buildscript {
 }
 
 apply plugin: 'kotlin'
+apply plugin: 'application'
 
 repositories {
     mavenCentral()
@@ -24,5 +25,12 @@ dependencies {
     compile 'de.vandermeer:asciitable:0.2.3'
     compile 'com.beust:jcommander:1.48'
     compile 'com.google.code.gson:gson:2.4'
+}
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.maxvogler.kit_language_courses.MainKt'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
