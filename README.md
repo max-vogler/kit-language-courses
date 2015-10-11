@@ -3,8 +3,27 @@ A scraper for language courses of the KIT Sprachzentrum
 
 ## Usage
 
+#### Use API
+```kotlin
+// Kotlin
+val scraper = Scraper()
+val languages = scraper.loadLanguages() // returns List<Language>
+val courses = scraper.loadCourses() // returns List<Course>
+
+courses.forEach { println(it.name) }
+```
+
+```java
+// Java
+Scraper scraper = new Scraper();
+List<Language> languages = scraper.loadLanguages();
+List<Course> courses = scraper.loadCourses();
+
+courses.forEach((course) -> System.out.println(course.getName()));
+```
+
 #### Print a table
-```sh
+```
 java -jar build/libs/kit-language-courses-*.jar 
 ```
 ```
@@ -16,7 +35,7 @@ java -jar build/libs/kit-language-courses-*.jar
 │ Chinesisch 1b │ Wang             │ 50.20 │ 207 │ Mo │ 19.30 - 21.00 │ € 90 │ 2 │ Chinesisch │
 │ Chinesisch 1c │ Wang             │ 50.20 │ 207 │ Mi │ 19.30 - 21.00 │ € 90 │ 2 │ Chinesisch │
 │ Chinesisch 1d │ Zhang-Backenstos │ 50.20 │ 301 │ Do │ 19.00 - 20.30 │ € 90 │ 2 │ Chinesisch │
-...
+  ...
 ```
 
 #### Print JSON
