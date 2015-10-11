@@ -15,7 +15,7 @@ public fun main(args: Array<String>) {
     // Display courses
     if (config.displayJson) {
         val gson = GsonBuilder().setPrettyPrinting().create()
-        println(gson.toJson(courses))
+        println(gson.toJson(courses.map { it.properties }))
     } else {
         printTable(courses.map { it.properties.values().toTypedArray() })
     }
